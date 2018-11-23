@@ -1,0 +1,26 @@
+<div class=" col-md-6 col-md-offset-3">
+
+  <h3>Nova sessão para sala: Rogue One</h3>
+
+  <form  [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="horario">Horario:</label> <input id="horario"
+        type="text" name="horario" class="form-control" value=""
+        formControlName="horario">
+
+    </div>
+
+    <div class="form-group">
+      <label for="filme">Filme:</label> <select id="filme" name="filme"
+        class="form-control"  formControlName="filme">
+        <option value="">Selecione um Filme</option>
+
+          <option *ngFor="let filme of filmes"  [value]="filme.id">{{filme.nome}}</option>
+      </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Gravar</button>
+  </form>
+</div>
