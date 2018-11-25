@@ -23,4 +23,9 @@ export class SessaoService {
   createSessao(sessao: Sessao) {
     return this.http.post(this.baseUrl, sessao);
   }
+
+  getSessao(idFilme: string, idSala: string){
+    return this.http.get<Sessao>(this.baseUrl + '/'+idFilme + '/' + idSala);
+  }
+
 }

@@ -54,7 +54,7 @@ const routes: Routes = [
 },
 
 {
-path: 'add-sessao/:id',
+path: 'add-sessao',
 component: SessaoFormComponent
 
 },

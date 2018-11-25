@@ -36,7 +36,7 @@ export class FilmeEditComponent implements OnInit {
       preco: [''],
     });
 
-    this.filmeService.getFilme(filmeId)
+    this.filmeService.getFilme(+filmeId)
       .subscribe( data => {
         this.editForm.setValue(data);
       });

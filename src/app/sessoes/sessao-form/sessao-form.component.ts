@@ -14,82 +14,56 @@ import { SalaService } from 'src/app/salas/sala/sala.service';
   styleUrls: ['./sessao-form.component.css']
 })
 export class SessaoFormComponent implements OnInit {
-  addForm: FormGroup;
   filmes: Filme[];
-  idSala: string;
-  idFilme: string;
-
-  horario: string;
-  sala: Sala;
-  filme: Filme;
-  preco: string;
-  sessao;
-
-  constructor(private formBuilder: FormBuilder,
+  sala: Sala = new Sala();
+  sessao: Sessao = new Sessao();
+  filme: Filme = new Filme();
+  salaId: string;
+  constructor(
     private router: Router, private sessaoService: SessaoService, 
     private filmeService: FilmeService,
-    private activeRoute: ActivatedRoute,
     private salaService: SalaService,
     ) { }
 
   ngOnInit() {
-    this.idSala = this.activeRoute.snapshot.params['id'];
-
-    this.filmeService.listaFilmes()
+   this.salaId = localStorage.getItem("addSalaId");
+    
+    this.filmeService.getFilmes()
     .subscribe( data => {
       this.filmes = data;
     });
 
-    this.addForm = this.formBuilder.group({
-      id: [''],
-      horario: [''],
-      filme: [''],
-      sala: [this.idSala],
-      preco: ['']
+     this.salaService.getSalaById(+this.salaId)
+     .subscribe(data => {
+       this.sala= data;
+     })
+  }
+
+
+  getFilme(): void{
+    let id = this.sessao.filme;
+    this.filmeService.getFilme(+id)
+    .subscribe(data => {
+      this.onSubmit(data);
     });
 
   }
 
-  
+    onSubmit(filme:Filme) {
 
-  getSala(id: number){
-    this.salaService.getSalaById(id)
-    .subscribe( data => {
-      this.sala = data;
-      this.addForm.setValue(data);
+    this.sessao.filme = filme;
+    this.sessao.sala = this.sala;
+    this.sessao.preco = filme.preco + this.sala.preco;
 
-    });
-  }
-
-  getFilme(id: string){
-    this.filmeService.getFilme(id)
-    .subscribe( data => {
-      this.filme = data;
-      console.log(this.filme);
-    });
-    console.log(this.filme);
-
-  }
-
-  setValuesSessao(){
-    this.getFilme((this.addForm.value.filme));
-    this.getSala((this.addForm.value.sala));
-   // this.horario = this.addForm.value.horario;
-    //this.preco = this.sala.preco + this.filme.preco;
-  }
-
-  createSessao(){
-    this.setValuesSessao();
-
-    this.sessao = new Sessao("",this.horario,this.sala,this.filme,this.preco);
+    console.log(this.sessao);
+    
     this.sessaoService.createSessao(this.sessao)
-      .subscribe( data => {
-        this.router.navigate(['sessao-lista',this.idSala]);
-      });
-  }
-  
-  onSubmit() {
-    this.createSessao();
+    .subscribe( data => {
+      this.router.navigate(['sessao-lista',this.salaId]);
+    });
+    this.sessao = new Sessao();
+    this.filme = new Filme();
+
   }
 
 }

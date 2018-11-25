@@ -13,13 +13,13 @@ export class SessaoListaComponent implements OnInit {
 
   constructor(private activeRoute: ActivatedRoute, private router: Router, private sessaoService: SessaoService) { }
 
-  idSala: string;
+  salaId: string;
   sessoes: Sessao[];
 
   ngOnInit() {
-    this.idSala = this.activeRoute.snapshot.params['id'];
+    this.salaId = this.activeRoute.snapshot.params['id'];
 
-    this.sessaoService.getSessoes(this.idSala)
+    this.sessaoService.getSessoes(this.salaId)
     .subscribe( data => {
       this.sessoes = data;
     });

@@ -29,6 +29,7 @@ export class FilmeFormComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.addForm.value);
     this.filmeService.createFilme(this.addForm.value)
       .subscribe( data => {
         this.router.navigate(['filme-lista']);

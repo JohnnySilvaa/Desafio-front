@@ -11,7 +11,7 @@ import { SessaoService } from '../../sessao/sessao.service';
 export class SessoesComponent implements OnInit {
 
  @Input() sessoes: Sessao[]= [];
- @Input() idSala: string;
+ @Input() salaId: string;
 
  constructor(private router: Router, private sessaoService: SessaoService) { }
 
@@ -26,7 +26,8 @@ export class SessoesComponent implements OnInit {
   };
 
   addSessao(): void {
-    this.router.navigate(['add-sessao',this.idSala]);
+    localStorage.setItem("addSalaId", this.salaId);
+    this.router.navigate(['add-sessao']);
   };
 
 

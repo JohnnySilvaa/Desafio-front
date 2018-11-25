@@ -14,32 +14,23 @@ export class FilmeService {
   constructor(private http: HttpClient, private _http: Http) { }
 
   
-  getFilme(id: string) {
+  getFilme(id: number) {
     return this.http.get<Filme>(this.baseUrl + '/' + id);
   }
-
-  listaFilmes() {
+  
+  getFilmes() {
     return this.http.get<Filme[]>(this.baseUrl);
   }
 
-  listFromFilme(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
-  }
-
-  deleteFilme(id: string): Observable<any> {
-      return this.http.delete(`${this.baseUrl}/delete/${id}`, { responseType: 'text' });
-
+  deleteFilme(id: string) {
+    return this.http.delete(this.baseUrl + '/' + id);
   }
   updateFilme(filme: Filme) {
     return this.http.put(this.baseUrl + '/' + filme.id, filme);
   }
 
-  createFilme(filme: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}` + `/create`, filme);
-  }
-
-  update(id:string,filme: any){
-    return this.http.put(`${this.baseUrl}/${id}`, filme)
+  createFilme(filme: Filme) {
+    return this.http.post(this.baseUrl, filme);
   }
   
 
