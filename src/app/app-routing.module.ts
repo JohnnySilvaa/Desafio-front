@@ -10,6 +10,7 @@ import { SalaListaComponent } from './salas/sala-lista/sala-lista.component';
 import { SalaFormComponent } from './salas/sala-form/sala-form.component';
 import { SalaEditComponent } from './salas/sala-edit/sala-edit.component';
 import { SessaoFormComponent } from './sessoes/sessao-form/sessao-form.component';
+import { LugarListaComponent } from './lugares/lugar-lista/lugar-lista.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,13 @@ path: 'add-sessao',
 component: SessaoFormComponent
 
 },
+
+
+{ 
+  path: 'lugar-lista/:salaId',
+  component: LugarListaComponent
+},
+
 
   { 
     path: '**', 

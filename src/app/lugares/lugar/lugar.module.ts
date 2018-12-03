@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { LugarComponent } from './lugar.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [LugarComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    HttpClientModule
+  ],
+  exports: [LugarComponent]
 })
 export class LugarModule { }

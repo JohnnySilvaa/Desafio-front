@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmeService } from '../filme/filme.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Filme } from '../filme/filme';
+import 'moment-duration-format';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import * as moment from "moment";
 
 @Component({
   selector: 'app-filme-form',
@@ -10,7 +11,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./filme-form.component.css']
 })
 export class FilmeFormComponent implements OnInit {
-
 
   addForm: FormGroup;
 

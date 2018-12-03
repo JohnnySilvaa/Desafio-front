@@ -19,6 +19,8 @@ export class SessaoFormComponent implements OnInit {
   sessao: Sessao = new Sessao();
   filme: Filme = new Filme();
   salaId: string;
+  
+
   constructor(
     private router: Router, private sessaoService: SessaoService, 
     private filmeService: FilmeService,
