@@ -13,6 +13,6 @@ import { LugarModule } from '../lugar/lugar.module';
     CommonModule,
     RouterModule,
     LugarModule
-  ]
+  ],
 })
 export class LugarListaModule { }

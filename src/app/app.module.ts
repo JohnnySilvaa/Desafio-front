@@ -12,6 +12,7 @@ import { SessoesModule } from './sessoes/sessoes.module';
 import { SalasModule } from './salas/salas.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { LugaresModule } from './lugares/lugares.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpModule } from '@angular/http';
     SessoesModule,
     SalasModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    LugaresModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -45,4 +45,9 @@ SalaComponent
     localStorage.setItem("editSalaId", sala.id.toString());
     this.router.navigate(['edit-sala']);
   };
+
+
+listaLugares(salaId: string){
+  this.router.navigate(['lugar-lista',salaId]);
+}
 }

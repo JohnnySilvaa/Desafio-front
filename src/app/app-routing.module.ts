@@ -11,6 +11,7 @@ import { SalaFormComponent } from './salas/sala-form/sala-form.component';
 import { SalaEditComponent } from './salas/sala-edit/sala-edit.component';
 import { SessaoFormComponent } from './sessoes/sessao-form/sessao-form.component';
 import { LugarListaComponent } from './lugares/lugar-lista/lugar-lista.component';
+import { LugarFormComponent } from './lugares/lugar-form/lugar-form.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,10 @@ component: SessaoFormComponent
   path: 'lugar-lista/:salaId',
   component: LugarListaComponent
 },
+{
+  path: 'add-lugar/:salaId',
+  component: LugarFormComponent
+  },
 
 
   { 

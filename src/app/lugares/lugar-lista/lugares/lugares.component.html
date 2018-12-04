@@ -2,8 +2,8 @@
   <h3>Rogue One</h3>
   <table class="table-compra" id="lugares">
     <tbody>
-      <tr class="fileira">
-        <td class="fileira-valor">1</td>
+      <tr  *ngFor="let lugar of l" class="fileira" >
+        <td class="fileira-valor">{{map}}</td>
         <td class="fileira-assentos">
           <table>
             <tr>
@@ -39,7 +39,7 @@
                       c1.681-2.082,4.185-3.272,6.854-3.272h155.634c2.67,0,5.174,1.19,6.854,3.272c1.688,2.075,2.338,4.773,1.785,7.394l-8.397,39.591
                     c-0.858,4.053-4.496,7-8.639,7H89.678C85.534,269.772,81.896,266.825,81.039,262.772z" />
                   </svg>
-                  <figcaption>2</figcaption>
+                  <figcaption>{{lugar.posicao}</figcaption>
                 </figure></td>
             </tr>
           </table>
@@ -47,7 +47,7 @@
     </tbody>
   </table>
   <div class="col-md-6 col-md-offset-3">
-    <a href="lugar.html" class="btn btn-block btn-info">Novo</a>
+    <a (click)="addLugar()" class="btn btn-block btn-info">Novo</a>
   </div>
 </div>
 

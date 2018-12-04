@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Lugar } from '../../lugar/lugar';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lugares',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LugaresComponent implements OnInit {
 
-  constructor() { }
+
+  @Input() lugares:Lugar[]=[];
+  
+  @Input() salaId: string;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  addLugar(){
+
+    this.router.navigate(['add-lugar', this.salaId])
   }
 
 }

@@ -9,21 +9,20 @@ export class LugarService {
 
   constructor(private http: HttpClient) { }
   baseUrl: string = 'http://localhost:8080/api/lugares';
+  baseUrlSala: string = 'http://localhost:8080/api/salas';
 
-  getLugares() {
-    return this.http.get<Lugar[]>(this.baseUrl);
+ map= new Map();
+
+  getLugares(salaId: string){
+    return this.http.get<Map<string,Lugar[]>>(this.baseUrlSala + '/' + salaId+'/lugares');
   }
 
   getLugarById(id: number) {
     return this.http.get<Lugar>(this.baseUrl + '/' + id);
   }
 
-  createLugar(lugar: Lugar) {
-    return this.http.post(this.baseUrl, lugar);
-  }
-
-  updateLugar(lugar: Lugar) {
-    return this.http.put(this.baseUrl + '/' +lugar.id, lugar);
+  addLugarSala(salaId: number, lugar: Lugar) {
+    return this.http.put(this.baseUrl + '/' + salaId, lugar);
   }
 
   deleteLugar(id: string) {
