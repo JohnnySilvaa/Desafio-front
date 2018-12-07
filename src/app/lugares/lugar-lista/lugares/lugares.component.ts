@@ -11,13 +11,21 @@ import { Observable } from 'rxjs';
 export class LugaresComponent implements OnInit {
 
 
-  @Input() lugares:Lugar[]=[];
+ @Input() map: Map<string,Lugar[]>;
   
   @Input() salaId: string;
 
   constructor(private router: Router) { }
 
+
+
+  //object: {[key: number]: string} = {2: 'foo', 1: 'bar'};
+ // map = new Map([[2, 'foo'], [1, 'bar']]);
+
   ngOnInit() {
+
+   // for (let value of Array.from(this.map.values())) {
+    //  console.log(value);}
   }
 
   addLugar(){
