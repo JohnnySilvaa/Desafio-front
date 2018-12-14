@@ -12,6 +12,8 @@ import { SalaEditComponent } from './salas/sala-edit/sala-edit.component';
 import { SessaoFormComponent } from './sessoes/sessao-form/sessao-form.component';
 import { LugarListaComponent } from './lugares/lugar-lista/lugar-lista.component';
 import { LugarFormComponent } from './lugares/lugar-form/lugar-form.component';
+import { FilmeEmCartazComponent } from './filmes/filme-em-cartaz/filme-em-cartaz.component';
+import { FilmeDetalheComponent } from './filmes/filme-detalhe/detalhe.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,14 @@ const routes: Routes = [
   {
     path: 'edit-filme',
     component: FilmeEditComponent 
+},
+{
+  path: 'filme-em-cartaz',
+  component: FilmeEmCartazComponent 
+},
+{
+  path: 'filme-detalhe',
+  component: FilmeDetalheComponent
 },
 {
   path: 'sala-lista',

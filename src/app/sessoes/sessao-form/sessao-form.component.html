@@ -15,7 +15,6 @@
       <select id="filme" name="filme"
         class="form-control"  [(ngModel)]="sessao.filme">
         <option value="">Selecione um Filme</option>
-
           <option *ngFor="let filme of filmes" [value]="filme.id">{{filme.nome}}</option>
       </select>
     </div>

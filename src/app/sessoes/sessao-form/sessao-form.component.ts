@@ -41,7 +41,6 @@ export class SessaoFormComponent implements OnInit {
      })
   }
 
-
   getFilme(): void{
     let id = this.sessao.filme;
     this.filmeService.getFilme(+id)

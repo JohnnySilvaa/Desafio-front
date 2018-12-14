@@ -17,15 +17,7 @@ export class LugaresComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-
-
-  //object: {[key: number]: string} = {2: 'foo', 1: 'bar'};
- // map = new Map([[2, 'foo'], [1, 'bar']]);
-
   ngOnInit() {
-
-   // for (let value of Array.from(this.map.values())) {
-    //  console.log(value);}
   }
 
   addLugar(){
